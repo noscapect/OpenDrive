@@ -1,9 +1,11 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
 
-val openDriveVersion = java.util.Properties().apply {
+val openDriveVersion = Properties().apply {
     rootProject.file("opendrive-version.properties").inputStream().use { load(it) }
 }
 
