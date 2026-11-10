@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+val openDriveVersion = java.util.Properties().apply {
+    rootProject.file("opendrive-version.properties").inputStream().use { load(it) }
+}
+
 android {
     namespace = "net.prototux.aare"
     compileSdk {
@@ -15,9 +19,9 @@ android {
         // modern Wi-Fi join (10), Shizuku capture (12); older phones fall back or go without.
         minSdk = 26
         targetSdk = 37
-        // The release workflow passes the tag's version (-PversionName=1.2.3 -PversionCode=10203).
-        versionCode = providers.gradleProperty("versionCode").orNull?.toInt() ?: 10000
-        versionName = providers.gradleProperty("versionName").orNull ?: "1.0.0"
+        // OpenDrive versions independently of AARE; explicit build properties can override it.
+        versionCode = providers.gradleProperty("versionCode").orNull?.toInt() ?: openDriveVersion.getProperty("versionCode").toInt()
+        versionName = providers.gradleProperty("versionName").orNull ?: openDriveVersion.getProperty("versionName")
     }
 
     signingConfigs {

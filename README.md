@@ -4,6 +4,12 @@ An experimental Android Auto phone-side app built on [AARE](https://github.com/p
 
 OpenDrive preserves AARE's source history and takes upstream updates into its own development branch. OpenDrive changes are published here, never pushed to AARE. See [AARE's original README](README.AARE.md) for the upstream project, credits, protocol setup and compatibility notes.
 
+## Download
+
+The first release is **OpenDrive 0.1.0**: [download the prebuilt APK](https://github.com/noscapect/OpenDrive/releases/download/v0.1.0/opendrive-0.1.0.apk) or see the [release notes](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0).
+
+This initial APK is debug-signed with the same local key as our earlier builds. It uses Android version code 10401 so it can update those builds despite OpenDrive starting its own version sequence at 0.1.0. Hardware validation is still pending.
+
 ## Features
 
 - Configurable cockpit with navigation, music, EV and favorite tiles.
@@ -39,6 +45,8 @@ build/opendrive/tests/
 ```
 
 `build-info.json` records the exact OpenDrive and AARE commits, APK checksum and test results. Use `-OutputDirectory <path>` for a different output location. `-SkipUpdate` deliberately skips fetching; it requires an already configured upstream reference and is recorded in the build metadata.
+
+OpenDrive's own version is stored in `opendrive-version.properties`, independently of AARE. Add `-Release` to build the exact version (`0.1.0`); normal builds append `-dev.<commit>`. This flag controls version labeling and still builds a debug-signed APK with the local key; it does not supply a production signing key or publish anything automatically.
 
 For a direct Gradle build (does not update upstream automatically):
 

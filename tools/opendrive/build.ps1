@@ -1,4 +1,4 @@
-param([switch]$SkipUpdate, [string]$OutputDirectory)
+param([switch]$SkipUpdate, [switch]$Release, [string]$OutputDirectory)
 
 $ErrorActionPreference = 'Stop'
 $source = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
@@ -29,12 +29,12 @@ try {
     if ($LASTEXITCODE -ne 0 -or $changes) { throw 'Build requires committed OpenDrive sources.' }
     $releaseTag = & git describe upstream/main --tags --abbrev=0 --match 'v[0-9]*'
     if ($LASTEXITCODE -ne 0) { throw 'Cannot determine upstream release version.' }
-    $releaseVersion = [version]($releaseTag -replace '^v', '')
+    $appVersion = Get-Content (Join-Path $source 'opendrive-version.properties') -Raw | ConvertFrom-StringData
     $revision = & git rev-parse --short HEAD
     $sourceRevision = & git rev-parse HEAD
     $upstreamRevision = & git rev-parse upstream/main
-    $versionName = "$releaseVersion-opendrive.$revision"
-    $versionCode = $releaseVersion.Major * 10000 + $releaseVersion.Minor * 100 + $releaseVersion.Build
+    $versionName = if ($Release) { $appVersion.versionName } else { "$($appVersion.versionName)-dev.$revision" }
+    $versionCode = [int]$appVersion.versionCode
     $log = Join-Path $output 'build.log'
     Write-Host "Building OpenDrive $versionName; output: $output"
     $gradle = if ($windowsHost) { './gradlew.bat' } else { './gradlew' }
@@ -74,6 +74,7 @@ try {
         application = 'OpenDrive'
         versionName = $versionName
         versionCode = $versionCode
+        releaseVersion = [bool]$Release
         builtAt = [DateTimeOffset]::Now.ToString('o')
         upstreamRepository = 'https://github.com/prototux/AARE.git'
         upstreamRelease = $releaseTag
