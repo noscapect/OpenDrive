@@ -9,12 +9,12 @@ OpenDrive bouwt eigen gebruikersfuncties boven op de nieuwste opgehaalde AARE `m
 | Muziek via spraak | Zoeken, genummerde keuze en bediening geïmplementeerd | Testen met de muziekapps van de gebruiker |
 | Doorlopende context en eigen voorkeuren | Geïmplementeerd per autosessie | Later optionele, expliciete opslag van favorieten |
 | ChatGPT-account en bestaande gesprekken | Onderzoek | Officiële toegang en productmogelijkheden verifiëren; geen toegang veronderstellen |
-| Persoonlijke cockpit | Gepland | Aanpasbare kaart-/muziek-/voertuigtegels ontwerpen boven op AARE's dashboard |
-| EV-dashboard | Gepland | Ondersteunde Niro-gegevens vaststellen; daarna eventueel OBD-adapter en aanvullende databron |
-| Bijrijderbediening | Gepland | Gekoppelde tweede telefoon, lokale authenticatie en duidelijke bestuurderscontrole |
-| Home Assistant | Gepland | Veilige koppeling en door de gebruiker gekozen acties/entiteiten |
-| Eigen media en kaartdiensten | Deels in AARE aanwezig | Verbeteren op basis van tests met eigen diensten, zonder bestaande functies dubbel te bouwen |
-| Lokaal rittenboek | Gepland | Opt-in ritopslag, privé/zakelijk, export en bewaartermijn |
-| Laadpauzescherm | Gepland | Beschikbare laadgegevens en functies voor geparkeerd gebruik samenbrengen |
+| Persoonlijke cockpit | Eerste implementatie | Vier instelbare en geordende tegels, eigen startscherm; controleren op de headunit |
+| EV-dashboard | Eerste implementatie | Auto-/Home Assistant-gegevens en herkenbare handmatige invoer; Niro-databeschikbaarheid controleren, later eventueel OBD |
+| Bijrijderbediening | Eerste implementatie | Tijdelijke lokale browserkoppeling, muziek en bestemmingsvoorstellen met bestuurdersbevestiging; testen op twee telefoons |
+| Home Assistant | Eerste implementatie | HTTPS-koppeling, drie opgeslagen acties met bevestiging en EV-sensoren; testen met de eigen server |
+| Eigen media en kaartdiensten | AARE plus OpenDrive-favorieten | Vaste ondersteunde apps, bestemmingen en geparkeerde HTTPS-webdiensten; testen met eigen diensten |
+| Lokaal rittenboek | Eerste implementatie | Opt-in sessieritten, kilometertellerafstand, privé/zakelijk, CSV, verwijderen en bewaartermijn |
+| Laadpauzescherm | Eerste implementatie | EV-gegevens, rekenschatting en sessiegebonden pauzetimer plus webfavorieten; geen laadregeling |
 
-De gebruiker heeft spraakassistent, navigatie en muziek als eerste prioriteit gekozen. De overige aanbevelingen zijn hier opgenomen als productwerk; ze worden niet als beschikbare APK-functies gepresenteerd.
+De gebruiker heeft na de eerste assistentversie ook cockpit, EV en de overige bovenstaande productfuncties laten toevoegen. Zie `opendrive-features.md` voor instellingen, mogelijkheden en de concrete grenzen van deze eerste implementaties. Praktijktesten en geavanceerde vervolgstappen blijven open; accountlogin, directe OBD, automatische thuiskomstacties en externe agentkoppelingen zijn nog geen beschikbare functies.

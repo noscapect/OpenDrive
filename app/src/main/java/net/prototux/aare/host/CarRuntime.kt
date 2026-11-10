@@ -21,6 +21,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -81,6 +82,7 @@ class CarRuntime(
     val ui = CarUiState()
     val icons = IconLoader(context, this)
     private val openDriveAssistant by lazy { net.opendrive.assistant.OpenDriveAssistant(this, scope) }
+    private val openDriveFeatures by lazy { net.opendrive.features.FeatureSession(this, scope, primary) }
     private val main = Handler(Looper.getMainLooper())
 
     /** Hosted car app connections by entry id. */
@@ -256,10 +258,14 @@ class CarRuntime(
 
     /** The car's driving signal (parked or not), before the passenger-mode setting. */
     private var carDriving = false
+    /** Raw driving signal, unaffected by passenger-mode preferences. */
+    var vehicleMoving by mutableStateOf(false)
+        private set
 
     /** The car says it's moving (true) or parked. */
     fun carDriving(driving: Boolean) {
         carDriving = driving
+        vehicleMoving = driving
         applyScreenSettings()
     }
 
@@ -321,6 +327,8 @@ class CarRuntime(
 
     fun start() {
         running += this
+        openDriveFeatures.start()
+        if (openDriveFeatures.settings.config.value.cockpitHome) ui.screen = CarScreen.App(net.opendrive.features.FeatureSession.COCKPIT)
         // Messages, directions and now playing all need the listener bound: make sure it is.
         CarNotificationListener.rebind(context)
         applyScreenSettings()
@@ -353,6 +361,7 @@ class CarRuntime(
     }
 
     fun stop() {
+        openDriveFeatures.stop()
         openDriveAssistant.shutdown()
         running.remove(this)
         runCatching { context.unregisterReceiver(packageReceiver) }
@@ -400,6 +409,7 @@ class CarRuntime(
         entries += CarAppEntry(PHONE_ID, context.packageName, context.getString(R.string.setup_app_entry_phone), builtinIcon(R.drawable.ic_car_phone), CarAppKind.PHONE)
         entries += CarAppEntry(SETTINGS_ID, context.packageName, context.getString(R.string.setup_app_entry_settings), builtinIcon(R.drawable.ic_car_settings), CarAppKind.SETTINGS)
         entries += CarAppEntry(NOTIFICATIONS_ID, context.packageName, context.getString(R.string.setup_app_entry_notifications), builtinIcon(R.drawable.ic_car_notifications), CarAppKind.NOTIFICATIONS)
+        entries += net.opendrive.features.FeatureSession.entries(context, builtinIcon(R.drawable.ic_car_data))
         if (settings.phoneScreen && phoneScreenAllowed) {
             entries += CarAppEntry(PHONE_SCREEN_ID, context.packageName, context.getString(R.string.phone_section_title), builtinIcon(R.drawable.ic_phone_screen), CarAppKind.PHONE_SCREEN)
         }
@@ -607,7 +617,9 @@ class CarRuntime(
             while (ui.recentAppIds.size > 6) ui.recentAppIds.removeAt(ui.recentAppIds.lastIndex)
         }
 
-        override fun goHome() { ui.screen = CarScreen.Dashboard }
+        override fun goHome() {
+            ui.screen = if (openDriveFeatures.settings.config.value.cockpitHome) CarScreen.App(net.opendrive.features.FeatureSession.COCKPIT) else CarScreen.Dashboard
+        }
         override fun openLauncher() { ui.screen = CarScreen.Launcher }
         override fun assistant() { this@CarRuntime.assistant() }
         override fun mediaPlayPause() = media.playPause()
@@ -699,7 +711,11 @@ class CarRuntime(
                             CarAppKind.BROWSER -> BrowserScreen(this, ui.drivingRestricted, settings.browserUrl, mod)
                             CarAppKind.CAR_DATA -> CarDataScreen(mod)
                             CarAppKind.PHONE -> PhoneScreen(this, mod)
-                            CarAppKind.SETTINGS -> CarSettingsScreen(settings, mod)
+                            CarAppKind.SETTINGS -> if (app.id.startsWith("opendrive:")) {
+                                net.opendrive.features.FeatureScreen(openDriveFeatures, app.id, mod) { nav, navMod ->
+                                    shownConnection(nav.id)?.let { CarAppScreen(it, this, navMod, compact = true) }
+                                }
+                            } else CarSettingsScreen(settings, mod)
                             CarAppKind.NOTIFICATIONS -> NotificationsScreen(ui, mod)
                             else -> shownConnection(app.id)?.let { CarAppScreen(it, this, mod) }
                         }

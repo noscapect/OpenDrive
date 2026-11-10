@@ -171,6 +171,7 @@ class MainActivity : ComponentActivity() {
 
 /** The settings pages, Android Auto style: one per topic, opened from the home page. */
 private enum class Page(val titleRes: Int, val subtitleRes: Int, val icon: ImageVector) {
+    OPENDRIVE(R.string.odf_settings_title, R.string.odf_settings_subtitle, Icons.Rounded.Dashboard),
     CAR_SCREEN(R.string.setup_page_car_screen_title, R.string.setup_page_car_screen_subtitle, Icons.Rounded.Dashboard),
     APPS(R.string.setup_page_apps_title, R.string.setup_page_apps_subtitle, Icons.Rounded.Apps),
     ASSISTANT(R.string.assistant_settings_title, R.string.assistant_page_subtitle, Icons.Rounded.Mic),
@@ -230,6 +231,7 @@ private fun Home() {
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     when (p) {
+                        Page.OPENDRIVE -> item { net.opendrive.features.FeatureSettingsScreen() }
                         Page.CAR_SCREEN -> item { CarScreenSettings(settings, refresh) }
                         Page.APPS -> item { AppsCard(settings) }
                         Page.ASSISTANT -> item { AssistantCard(settings) }

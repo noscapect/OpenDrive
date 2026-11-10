@@ -8,4 +8,6 @@ The `opendrive` branch preserves the upstream history and carries OpenDrive chan
 
 OpenDrive's own assistant lives in `app/src/main/java/net/opendrive/assistant`, connected to the upstream runtime and phone settings through small integration points. It provides OpenAI speech input, follow-up conversation, spoken answers, navigation destination search and music search/playback. Setup and test limits are documented in `docs/opendrive-assistant.md`; future feature ideas are tracked in `docs/opendrive-roadmap.md`.
 
+The cockpit, EV data view, favorites, Home Assistant client, local trip book, temporary passenger server and charging break screen live in `app/src/main/java/net/opendrive/features`. Setup and validation limits are in `docs/opendrive-features.md`. The phone has a dedicated OpenDrive settings category; the car launcher exposes the new feature screens.
+
 The AARE remote is fetch-only in our workflow: its push URL is `DISABLED`, enforced by `../update-upstream.ps1`. No OpenDrive changes are published to AARE. Original licensing and credits are retained in `LICENSE` and `README.md`.
