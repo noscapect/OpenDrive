@@ -1,0 +1,36 @@
+<resources>
+    <string name="od_assistant_title">OpenDrive Assistant</string>
+    <string name="od_assistant_description">Talk, ask follow-up questions, search for a destination and control your music using OpenAI.</string>
+    <string name="od_privacy">When you press the microphone, your recording, conversation and requested trip or music information are sent to OpenAI. Your personal API key is encrypted on this phone. API usage is billed to your OpenAI API account. This does not connect to your ChatGPT conversations.</string>
+    <string name="od_enable">Use OpenDrive for the voice button</string>
+    <string name="od_key_saved">An API key is saved on this phone.</string>
+    <string name="od_key_missing">Add your personal OpenAI API key to enable the assistant.</string>
+    <string name="od_api_key">OpenAI API key (enter to add or replace)</string>
+    <string name="od_model">OpenAI model</string>
+    <string name="od_preferences">Your preferences (language, music, travel)</string>
+    <string name="od_speak_replies">Read answers aloud</string>
+    <string name="od_save">Save</string>
+    <string name="od_remove_key">Remove API key</string>
+    <string name="od_saved">Saved. Enable the assistant and try the microphone in Preview car screen.</string>
+    <string name="od_removed">API key removed and OpenDrive Assistant disabled.</string>
+    <string name="od_save_failed">Could not save. Check the key and try again.</string>
+    <string name="od_setup_help">Try “Navigate to Utrecht”, “Pause the music” or “Find Miles Davis in my music app”. Press the microphone for each follow-up; press again to send early. A short silence ends recording. Set up Car audio to hear answers through the car. When disabled, the assistant selected below is used.</string>
+    <string name="od_configure_first">Set up OpenDrive Assistant on your phone under Voice assistant.</string>
+    <string name="od_microphone_permission">Allow microphone access in the phone settings, then try again.</string>
+    <string name="od_microphone_unavailable">The microphone is unavailable. End other voice sessions and try again.</string>
+    <string name="od_call_active">Finish your phone call before starting the assistant.</string>
+    <string name="od_no_speech">No speech heard. Press the microphone and try again.</string>
+    <string name="od_voice_unavailable">Spoken playback is unavailable. Check the phone’s text-to-speech settings; the answer is on screen.</string>
+    <string name="od_api_auth">OpenAI could not authorize this key. Check your API key and access on the phone.</string>
+    <string name="od_api_limit">OpenAI usage or rate limit reached. Check your API account or try later.</string>
+    <string name="od_api_model">OpenAI could not accept this request. Check the selected model and API access on the phone.</string>
+    <string name="od_api_unavailable">The assistant could not finish. Check internet and try again. An action already requested may still have happened; check navigation or playback before repeating it.</string>
+    <string name="od_listening">Listening…</string>
+    <string name="od_thinking">Working…</string>
+    <string name="od_follow_up">Press the microphone to continue.</string>
+    <string name="od_talk">Talk</string>
+    <string name="od_send">Send</string>
+    <string name="od_interrupt">Interrupt</string>
+    <string name="od_new_conversation">New conversation</string>
+    <string name="od_close">Close</string>
+</resources>

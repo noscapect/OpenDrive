@@ -80,6 +80,7 @@ class CarRuntime(
 
     val ui = CarUiState()
     val icons = IconLoader(context, this)
+    private val openDriveAssistant by lazy { net.opendrive.assistant.OpenDriveAssistant(this, scope) }
     private val main = Handler(Looper.getMainLooper())
 
     /** Hosted car app connections by entry id. */
@@ -352,6 +353,7 @@ class CarRuntime(
     }
 
     fun stop() {
+        openDriveAssistant.shutdown()
         running.remove(this)
         runCatching { context.unregisterReceiver(packageReceiver) }
         settings.unregisterListener(settingsListener)
@@ -629,6 +631,10 @@ class CarRuntime(
      */
     fun assistant() {
         onAssistant?.invoke()
+        if (net.opendrive.assistant.AssistantSettings(context).enabled) {
+            openDriveAssistant.activate()
+            return
+        }
         val pkg = assistantPackage()
         if (pkg == null) {
             notice(context.getString(R.string.notif_assistant_title), context.getString(R.string.notif_assistant_choose_text))
@@ -656,6 +662,7 @@ class CarRuntime(
 
     /** Back key from the car. */
     fun back() {
+        if (openDriveAssistant.visible) { openDriveAssistant.close(); return }
         if (ui.assistantAppId != null) { ui.assistantAppId = null; return }
         if (screenBack?.invoke() == true) return
         when (val s = ui.screen) {
@@ -699,6 +706,7 @@ class CarRuntime(
                     },
                     navMap = { app, mod -> shownConnection(app.id)?.let { CarAppScreen(it, this, mod, compact = true) } },
                     overlay = { mod ->
+                        net.opendrive.assistant.OpenDriveAssistantPanel(openDriveAssistant, mod)
                         val entry = ui.app(ui.assistantAppId)
                         val conn = entry?.let { shownConnection(it.id) }
                         if (entry != null && conn != null) {

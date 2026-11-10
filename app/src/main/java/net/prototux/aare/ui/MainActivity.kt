@@ -1071,6 +1071,7 @@ private fun AssistantCard(settings: Settings) {
     val phoneDefault = remember { Assistants.phoneDefault(ctx) }
     var chosen by remember { mutableStateOf(settings.assistantPackage) }
     fun choose(pkg: String?) { chosen = pkg; settings.assistantPackage = pkg }
+    net.opendrive.assistant.OpenDriveAssistantSettings()
     Section(stringResource(R.string.assistant_settings_title)) {
         val defaultLabel = phoneDefault?.let { pkg -> choices.firstOrNull { it.packageName == pkg }?.label ?: Assistants.label(ctx, pkg) ?: pkg }
         AssistantRow(

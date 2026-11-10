@@ -1,0 +1,36 @@
+<resources>
+    <string name="od_assistant_title">OpenDrive-assistent</string>
+    <string name="od_assistant_description">Praat, stel vervolgvragen, zoek een bestemming en bedien je muziek via OpenAI.</string>
+    <string name="od_privacy">Als je op de microfoon drukt, worden je opname, gesprek en opgevraagde rit- of muziekgegevens naar OpenAI gestuurd. Je persoonlijke API-sleutel wordt versleuteld op deze telefoon bewaard. API-gebruik wordt afgerekend via je OpenAI API-account. Je ChatGPT-gesprekken worden niet gekoppeld.</string>
+    <string name="od_enable">OpenDrive gebruiken voor de spraakknop</string>
+    <string name="od_key_saved">Er is een API-sleutel opgeslagen op deze telefoon.</string>
+    <string name="od_key_missing">Voeg je persoonlijke OpenAI API-sleutel toe om de assistent te activeren.</string>
+    <string name="od_api_key">OpenAI API-sleutel (toevoegen of vervangen)</string>
+    <string name="od_model">OpenAI-model</string>
+    <string name="od_preferences">Jouw voorkeuren (taal, muziek, reizen)</string>
+    <string name="od_speak_replies">Antwoorden voorlezen</string>
+    <string name="od_save">Opslaan</string>
+    <string name="od_remove_key">API-sleutel verwijderen</string>
+    <string name="od_saved">Opgeslagen. Zet de assistent aan en probeer de microfoon in het voorbeeld van het autoscherm.</string>
+    <string name="od_removed">API-sleutel verwijderd en OpenDrive-assistent uitgeschakeld.</string>
+    <string name="od_save_failed">Opslaan mislukt. Controleer de sleutel en probeer opnieuw.</string>
+    <string name="od_setup_help">Probeer “Navigeer naar Utrecht”, “Pauzeer de muziek” of “Zoek Miles Davis in mijn muziekapp”. Druk voor elke vervolgvraag op de microfoon; druk nogmaals om eerder te versturen. Een korte stilte beëindigt de opname. Stel auto-audio in om antwoorden via de auto te horen. Als OpenDrive uitstaat, wordt de hieronder gekozen assistent gebruikt.</string>
+    <string name="od_configure_first">Stel de OpenDrive-assistent op je telefoon in bij Spraakassistent.</string>
+    <string name="od_microphone_permission">Geef op de telefoon toegang tot de microfoon en probeer opnieuw.</string>
+    <string name="od_microphone_unavailable">De microfoon is niet beschikbaar. Sluit andere spraaksessies en probeer opnieuw.</string>
+    <string name="od_call_active">Beëindig je telefoongesprek voordat je de assistent start.</string>
+    <string name="od_no_speech">Geen spraak gehoord. Druk op de microfoon en probeer opnieuw.</string>
+    <string name="od_voice_unavailable">Voorlezen is niet beschikbaar. Controleer tekst-naar-spraak op de telefoon; het antwoord staat op het scherm.</string>
+    <string name="od_api_auth">OpenAI accepteert deze sleutel niet. Controleer je API-sleutel en toegang op de telefoon.</string>
+    <string name="od_api_limit">De gebruiks- of snelheidslimiet van OpenAI is bereikt. Controleer je API-account of probeer later opnieuw.</string>
+    <string name="od_api_model">OpenAI accepteert dit verzoek niet. Controleer het gekozen model en je API-toegang op de telefoon.</string>
+    <string name="od_api_unavailable">De assistent kon niet afronden. Controleer internet en probeer opnieuw. Een al aangevraagde actie kan wel zijn uitgevoerd; controleer navigatie of muziek voordat je die herhaalt.</string>
+    <string name="od_listening">Ik luister…</string>
+    <string name="od_thinking">Even bezig…</string>
+    <string name="od_follow_up">Druk op de microfoon om verder te praten.</string>
+    <string name="od_talk">Praten</string>
+    <string name="od_send">Versturen</string>
+    <string name="od_interrupt">Onderbreken</string>
+    <string name="od_new_conversation">Nieuw gesprek</string>
+    <string name="od_close">Sluiten</string>
+</resources>
