@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Låter dig använda telefonskärmen från bilen: AARE återger beröringarna som görs på bilskärmen på telefonen och kontrollerar vilken app som är i förgrunden, så att telefonskärmen förblir pausad under körning om den inte visar en navigeringsapp. AARE läser inget annat.</string>
     <string name="mirror_locked_placeholder">Telefonskärmen är pausad medan telefonen är låst. Lås upp telefonen för att visa den.</string>
     <string name="mirror_driving_no_accessibility">Telefonskärmen är pausad under körning. För att visa navigeringsappar under körning, aktivera AARE i telefonens tillgänglighetsinställningar: det talar om för AARE vilken app som är öppen.</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Hiermee kunt u het telefoonscherm vanuit de auto gebruiken: AARE geeft de aanrakingen op het autoscherm door aan de telefoon en controleert welke app op de voorgrond staat, zodat het telefoonscherm tijdens het rijden gepauzeerd blijft, behalve wanneer een navigatie-app wordt weergegeven. AARE leest niets anders.</string>
     <string name="mirror_locked_placeholder">Het telefoonscherm is gepauzeerd zolang de telefoon vergrendeld is. Ontgrendel de telefoon om het te tonen.</string>
     <string name="mirror_driving_no_accessibility">Het telefoonscherm is gepauzeerd tijdens het rijden. Om navigatie-apps tijdens het rijden te tonen, schakelt u AARE in bij de toegankelijkheidsinstellingen van de telefoon: zo weet AARE welke app open is.</string>

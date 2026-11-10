@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Antaa käyttää puhelimen näyttöä autosta: AARE toistaa puhelimessa auton näytöllä tehdyt kosketukset ja tarkistaa, mikä sovellus on edessä, jotta puhelimen näyttö pysyy keskeytettynä ajon aikana, ellei se näytä navigointisovellusta. AARE ei lue mitään muuta.</string>
     <string name="mirror_locked_placeholder">Puhelimen näyttö on keskeytetty, kun puhelin on lukittu. Avaa puhelimen lukitus näyttääksesi sen.</string>
     <string name="mirror_driving_no_accessibility">Puhelimen näyttö on keskeytetty ajon aikana. Jos haluat näyttää navigointisovelluksia ajon aikana, ota AARE käyttöön puhelimen esteettömyysasetuksissa: se kertoo AARElle, mikä sovellus on avoinna.</string>

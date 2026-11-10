@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">让你在车机上操作手机屏幕：AARE 会将车机屏幕上的点击重放到手机上，并检测当前最前台的应用，因此行驶时手机屏幕会保持暂停，除非显示的是导航应用。AARE 不会读取其他任何内容。</string>
     <string name="mirror_locked_placeholder">手机锁屏时屏幕镜像会暂停。解锁手机即可显示。</string>
     <string name="mirror_driving_no_accessibility">行驶中手机屏幕会暂停。若要在行驶中显示导航应用，请在手机的无障碍设置中开启 AARE：它会告诉 AARE 当前打开的是哪个应用。</string>

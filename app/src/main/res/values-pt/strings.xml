@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Permite utilizar o ecrã do telemóvel a partir do carro: a AARE reproduz no telemóvel os toques feitos no ecrã do carro e verifica qual a aplicação em primeiro plano, para que o ecrã do telemóvel fique em pausa durante a condução, exceto quando mostra uma aplicação de navegação. A AARE não lê mais nada.</string>
     <string name="mirror_locked_placeholder">O ecrã do telemóvel está em pausa enquanto o telemóvel estiver bloqueado. Desbloqueie o telemóvel para o mostrar.</string>
     <string name="mirror_driving_no_accessibility">O ecrã do telemóvel está em pausa durante a condução. Para mostrar aplicações de navegação durante a condução, ative a AARE nas definições de acessibilidade do telemóvel: isso indica à AARE qual a aplicação aberta.</string>

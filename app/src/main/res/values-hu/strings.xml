@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Lehetővé teszi, hogy a telefon képernyőjét az autóból használd: az AARE továbbítja a telefonnak az autó képernyőjén végzett érintéseket, és figyeli, melyik alkalmazás van előtérben, így a telefon képernyője vezetés közben szünetel, kivéve ha navigációs alkalmazást mutat. Az AARE mást nem olvas.</string>
     <string name="mirror_locked_placeholder">A telefon képernyője szünetel, amíg a telefon zárolva van. Oldd fel a telefont a megjelenítéséhez.</string>
     <string name="mirror_driving_no_accessibility">A telefon képernyője szünetel vezetés közben. Ahhoz, hogy navigációs alkalmazásokat vezetés közben is megjeleníthess, kapcsold be az AARE-t a telefon kezelési segítség beállításaiban: ez jelzi az AARE-nak, melyik alkalmazás van megnyitva.</string>

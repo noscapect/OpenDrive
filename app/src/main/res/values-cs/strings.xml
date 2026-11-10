@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Umožňuje používat obrazovku telefonu z auta: AARE na telefonu přehrává dotyky provedené na obrazovce auta a zjišťuje, která aplikace je v popředí, takže obrazovka telefonu zůstává při jízdě pozastavena, pokud nezobrazuje navigační aplikaci. AARE nečte nic jiného.</string>
     <string name="mirror_locked_placeholder">Obrazovka telefonu je pozastavena, když je telefon uzamčen. Odemkněte telefon, aby se zobrazila.</string>
     <string name="mirror_driving_no_accessibility">Obrazovka telefonu je při jízdě pozastavena. Chcete-li zobrazovat navigační aplikace při jízdě, zapněte AARE v nastavení přístupnosti telefonu: řekne AARE, která aplikace je otevřená.</string>

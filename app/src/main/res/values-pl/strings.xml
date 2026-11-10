@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AARE</string>
+    <string name="app_name">OpenDrive</string>
     <string name="mirror_touch_description">Pozwala korzystać z ekranu telefonu z samochodu: AARE powtarza na telefonie dotknięcia wykonane na ekranie samochodu i sprawdza, która aplikacja jest aktywna, dzięki czemu ekran telefonu pozostaje wstrzymany podczas jazdy, jeśli nie wyświetla aplikacji nawigacyjnej. AARE nie odczytuje niczego innego.</string>
     <string name="mirror_locked_placeholder">Ekran telefonu jest wstrzymany, gdy telefon jest zablokowany. Odblokuj telefon, aby go wyświetlić.</string>
     <string name="mirror_driving_no_accessibility">Ekran telefonu jest wstrzymany podczas jazdy. Aby wyświetlać aplikacje nawigacyjne podczas jazdy, włącz AARE w ustawieniach ułatwień dostępu telefonu: to pozwala AARE wiedzieć, która aplikacja jest otwarta.</string>
