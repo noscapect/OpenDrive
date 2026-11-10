@@ -122,6 +122,6 @@ dependencies {
     implementation(libs.shizuku.provider)
     implementation(libs.hiddenapibypass)
     testImplementation(libs.junit)
-    testImplementation("org.json:json:20240303")
+    testImplementation("org.json:json:20260814")
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
