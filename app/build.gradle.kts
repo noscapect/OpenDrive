@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "net.prototux.aare"
+        applicationId = openDriveVersion.getProperty("applicationId")
         // Android 8. Newer features need newer Android: car audio by screen capture and the
         // modern Wi-Fi join (10), Shizuku capture (12); older phones fall back or go without.
         minSdk = 26

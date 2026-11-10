@@ -12,20 +12,20 @@ ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 APK=${1:-$ROOT/app/build/outputs/apk/debug/app-debug.apk}
 [ -f "$APK" ] || { echo "No APK at $APK: build it first (./build.sh)" >&2; exit 1; }
 # The release workflow passes the tag's version; otherwise the build file's default.
-VERSION=${AARE_VERSION:-$(sed -n 's/.*versionName = .*"\(.*\)".*/\1/p' "$ROOT/app/build.gradle.kts" | head -1)}
+VERSION=${OPENDRIVE_VERSION:-$(sed -n 's/^versionName=//p' "$ROOT/opendrive-version.properties" | tr -d '\r')}
 
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT
-mkdir -p "$WORK/system/priv-app/AARE" "$WORK/system/etc/permissions" "$WORK/META-INF/com/google/android"
-cp "$APK" "$WORK/system/priv-app/AARE/AARE.apk"
+mkdir -p "$WORK/system/priv-app/OpenDrive" "$WORK/system/etc/permissions" "$WORK/META-INF/com/google/android"
+cp "$APK" "$WORK/system/priv-app/OpenDrive/OpenDrive.apk"
 cp "$ROOT/tools/magisk/privapp-permissions-aare.xml" "$WORK/system/etc/permissions/"
 cat > "$WORK/module.prop" <<PROP
-id=aare
-name=AARE (privileged)
+id=opendrive
+name=OpenDrive (privileged)
 version=$VERSION
 versionCode=1
-author=AARE contributors
-description=Installs AARE as a privileged app: car audio like Android Auto (music and navigation voice, phone speaker muted).
+author=OpenDrive and AARE contributors
+description=Installs OpenDrive as a privileged app for car audio; based on AARE.
 PROP
 # Magisk's standard installer stubs.
 cat > "$WORK/META-INF/com/google/android/update-binary" <<'BIN'
@@ -41,7 +41,7 @@ BIN
 echo "#MAGISK" > "$WORK/META-INF/com/google/android/updater-script"
 
 mkdir -p "$ROOT/build"
-OUT="$ROOT/build/aare-magisk.zip"
+OUT="$ROOT/build/opendrive-magisk.zip"
 rm -f "$OUT"
 (cd "$WORK" && zip -qr "$OUT" .)
 echo "$OUT"

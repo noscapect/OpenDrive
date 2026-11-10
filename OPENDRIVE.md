@@ -1,6 +1,6 @@
 # OpenDrive source fork
 
-This checkout is the OpenDrive development fork of AARE. The first published release is [OpenDrive 0.1.0](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0). The Android app label and Gradle project name are OpenDrive; the inherited namespace and application ID remain `net.prototux.aare`.
+This checkout is the OpenDrive development fork of AARE. The first published release is [OpenDrive 0.1.0](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0), with the inherited app ID. The 0.1.1 development version uses `io.github.noscapect.opendrive`; the inherited code namespace remains `net.prototux.aare`. See [identity and migration notes](docs/opendrive-identity.md).
 
 Upstream: https://github.com/prototux/AARE.git (`upstream/main`).
 

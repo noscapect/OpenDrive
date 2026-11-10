@@ -72,6 +72,7 @@ try {
     }
     [ordered]@{
         application = 'OpenDrive'
+        applicationId = $appVersion.applicationId
         versionName = $versionName
         versionCode = $versionCode
         releaseVersion = [bool]$Release

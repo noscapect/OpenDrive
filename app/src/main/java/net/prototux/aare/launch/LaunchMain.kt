@@ -43,7 +43,7 @@ object LaunchMain {
         at.getMethod("getSystemContext").invoke(thread) as Context
     }.onFailure { Log.w(TAG, "no system context", it) }.getOrNull()
 
-    const val ACTION_HOST = "net.prototux.aare.LAUNCH_HOST"
+    const val ACTION_HOST = net.prototux.aare.BuildConfig.APPLICATION_ID + ".LAUNCH_HOST"
     const val EXTRA_BUNDLE = "bundle"
     const val EXTRA_BINDER = "host"
     private const val TAG = "AareLaunchMain"

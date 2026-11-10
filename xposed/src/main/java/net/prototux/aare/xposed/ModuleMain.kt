@@ -32,6 +32,6 @@ class ModuleMain : XposedModule() {
     }
 
     companion object {
-        const val AARE_PACKAGE = "net.prototux.aare"
+        const val AARE_PACKAGE = "io.github.noscapect.opendrive"
     }
 }

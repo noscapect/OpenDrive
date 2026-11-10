@@ -2,6 +2,8 @@
 
 Dit overzicht beschrijft de gepubliceerde **OpenDrive 0.1.0**. De ontwikkeltak kan nieuwere commits bevatten; de release en de bijbehorende tag blijven de vaste referentie voor deze APK.
 
+De ontwikkeltak bereidt inmiddels 0.1.1 met eigen application ID voor. Die aparte installatie verandert de onderstaande 0.1.0-releasegegevens niet. Zie de [identiteits- en migratienotities](opendrive-identity.md); Play Protect-acceptatie is nog niet vastgesteld.
+
 ## Download en broncode
 
 - [Publieke repository](https://github.com/noscapect/OpenDrive)

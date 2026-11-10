@@ -74,7 +74,7 @@
     <uses-feature android:name="android.hardware.wifi" android:required="false" />
 
     <application
-        android:name=".AareApp"
+        android:name="net.prototux.aare.AareApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -82,7 +82,7 @@
         android:theme="@style/Theme.Aare">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name="net.prototux.aare.ui.MainActivity"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -92,14 +92,14 @@
         </activity>
 
         <activity
-            android:name=".ui.CarPreviewActivity"
+            android:name="net.prototux.aare.ui.CarPreviewActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:theme="@style/Theme.Aare" />
 
         <!-- Wired head units switch the phone to accessory mode with these strings. -->
         <activity
-            android:name=".transport.UsbAccessoryActivity"
+            android:name="net.prototux.aare.transport.UsbAccessoryActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
@@ -114,12 +114,12 @@
         </activity>
 
         <service
-            android:name=".service.ProjectionService"
+            android:name="net.prototux.aare.service.ProjectionService"
             android:exported="false"
             android:foregroundServiceType="connectedDevice|mediaProjection|microphone|location" />
 
         <service
-            android:name=".notify.CarNotificationListener"
+            android:name="net.prototux.aare.notify.CarNotificationListener"
             android:exported="true"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
@@ -130,8 +130,8 @@
 
         <!-- Car tools for the voice assistant (CarControlProvider checks the caller). -->
         <provider
-            android:name=".host.CarControlProvider"
-            android:authorities="net.prototux.aare.car"
+            android:name="net.prototux.aare.host.CarControlProvider"
+            android:authorities="${applicationId}.car"
             android:exported="true" />
 
         <!-- Shizuku (adb rights without root): car audio including navigation voice. -->
@@ -145,7 +145,7 @@
 
         <!-- Optional: touch for the phone screen shown in the car. -->
         <service
-            android:name=".mirror.MirrorTouchService"
+            android:name="net.prototux.aare.mirror.MirrorTouchService"
             android:exported="true"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
@@ -161,7 +161,7 @@
              android:permission: both actions are protected system broadcasts, and BLUETOOTH_CONNECT
              does not exist below API 31, so requiring it of the sender blocked delivery on 8-11. -->
         <receiver
-            android:name=".service.WirelessReceiver"
+            android:name="net.prototux.aare.service.WirelessReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
@@ -170,7 +170,7 @@
         </receiver>
 
         <receiver
-            android:name=".service.BootReceiver"
+            android:name="net.prototux.aare.service.BootReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -179,7 +179,7 @@
 
         <!-- "Trust" on the "New head unit" notification. -->
         <receiver
-            android:name=".service.TrustReceiver"
+            android:name="net.prototux.aare.service.TrustReceiver"
             android:exported="false" />
     </application>
 </manifest>

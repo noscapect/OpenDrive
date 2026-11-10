@@ -35,12 +35,12 @@ echo "Phone: $SERIAL"
 if [ "$MODE" = aare ]; then
     adb forward tcp:5277 localabstract:aare_hu >/dev/null
     command -v ffmpeg >/dev/null || { echo "ffmpeg not found: install it (it decodes the car screen)" >&2; exit 1; }
-    if ! adb shell pm path net.prototux.aare >/dev/null 2>&1; then
-        echo "AARE isn't installed on $SERIAL: ./build.sh && adb install -r app/build/outputs/apk/debug/app-debug.apk" >&2
+    if ! adb shell pm path io.github.noscapect.opendrive >/dev/null 2>&1; then
+        echo "OpenDrive isn't installed on $SERIAL: ./build.sh && adb install -r app/build/outputs/apk/debug/app-debug.apk" >&2
         exit 1
     fi
     # Debug builds of AARE turn their head unit server on when asked (release builds: toggle it in the app).
-    adb shell am start -n net.prototux.aare/.ui.MainActivity --ez hu_server true >/dev/null 2>&1 || true
+    adb shell am start -n io.github.noscapect.opendrive/net.prototux.aare.ui.MainActivity --ez hu_server true >/dev/null 2>&1 || true
     # adb forward accepts connections even when nothing listens on the phone, so check the phone itself
     # (an abstract socket shows as @aare_hu in /proc/net/unix).
     listening() { adb shell cat /proc/net/unix 2>/dev/null | grep -q '@aare_hu'; }

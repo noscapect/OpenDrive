@@ -6,6 +6,8 @@ OpenDrive preserves AARE's source history and takes upstream updates into its ow
 
 ## Download
 
+The development branch now prepares **0.1.1** with its own Android application ID, `io.github.noscapect.opendrive`. It installs separately from 0.1.0 and does not automatically migrate settings. Permissions and features are retained; this change does not establish Play Protect acceptance. See the [identity and migration notes](docs/opendrive-identity.md).
+
 The first release is **OpenDrive 0.1.0**: [download the prebuilt APK](https://github.com/noscapect/OpenDrive/releases/download/v0.1.0/opendrive-0.1.0.apk) or see the [release notes](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0).
 
 This initial APK is debug-signed with the same local key as our earlier builds. It uses Android version code 10401 so it can update those builds despite OpenDrive starting its own version sequence at 0.1.0. Hardware validation is still pending.
@@ -82,7 +84,7 @@ tools/opendrive/      Portable build and upstream update scripts
 docs/                 Feature guides, upstream research and roadmap
 ```
 
-The initial app label is OpenDrive, while the inherited Android application ID remains `net.prototux.aare`. It therefore replaces a compatible, equally signed local AARE/OpenDrive installation rather than installing alongside it. A separate package identity is future work.
+Published release 0.1.0 uses the inherited application ID `net.prototux.aare`. Development version 0.1.1 uses `io.github.noscapect.opendrive`, with provider authorities and internal actions updated to match. Existing data does not migrate automatically; external integrations must use the new identity. The inherited source-code namespace is retained. See [identity notes](docs/opendrive-identity.md).
 
 Releases are currently published manually; version 0.1.0 is available above. The inherited AARE release workflow is preserved as documentation in `docs/aare-release-workflow.yml`, not executed in this repository. Automatic release publication and production signing have not been configured.
 

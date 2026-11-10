@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — development
+
+- Give OpenDrive its own application ID, `io.github.noscapect.opendrive`, separately from AARE and the 0.1.0 installation.
+- Update provider authorities, internal service actions, desktop helper, optional module target and privileged-permission configuration.
+- Retain the same permissions, feature code, signing key and upstream attribution. Settings do not migrate automatically across app IDs; external assistants must support the new car-control-provider authority.
+- Play Protect acceptance has not been established; changing identity is not a guarantee of installation approval.
+
 ## 0.1.0 — 2026-11-10
 
 First public, experimental OpenDrive release, based on AARE 1.4.0 and upstream commit `5d932ae`.

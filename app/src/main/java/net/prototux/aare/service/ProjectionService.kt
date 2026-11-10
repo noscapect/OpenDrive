@@ -631,15 +631,15 @@ class ProjectionService : Service() {
         /** Wireless attempts after a car that wasn't ready yet, waiting this much longer each time. */
         private const val WIRELESS_RETRIES = 2
         private const val WIRELESS_RETRY_DELAY_MS = 10_000L
-        const val ACTION_USB = "net.prototux.aare.USB"
-        const val ACTION_USB_PERMISSION = "net.prototux.aare.USB_PERMISSION"
-        const val ACTION_IDLE = "net.prototux.aare.IDLE"
-        const val ACTION_STOP = "net.prototux.aare.STOP"
-        const val ACTION_DOWNLOAD_CERT = "net.prototux.aare.DOWNLOAD_CERT"
-        const val ACTION_WIRELESS = "net.prototux.aare.WIRELESS"
-        const val ACTION_PROBE_WIRELESS = "net.prototux.aare.PROBE_WIRELESS"
+        const val ACTION_USB = net.prototux.aare.BuildConfig.APPLICATION_ID + ".USB"
+        const val ACTION_USB_PERMISSION = net.prototux.aare.BuildConfig.APPLICATION_ID + ".USB_PERMISSION"
+        const val ACTION_IDLE = net.prototux.aare.BuildConfig.APPLICATION_ID + ".IDLE"
+        const val ACTION_STOP = net.prototux.aare.BuildConfig.APPLICATION_ID + ".STOP"
+        const val ACTION_DOWNLOAD_CERT = net.prototux.aare.BuildConfig.APPLICATION_ID + ".DOWNLOAD_CERT"
+        const val ACTION_WIRELESS = net.prototux.aare.BuildConfig.APPLICATION_ID + ".WIRELESS"
+        const val ACTION_PROBE_WIRELESS = net.prototux.aare.BuildConfig.APPLICATION_ID + ".PROBE_WIRELESS"
         const val EXTRA_DEVICE = "device"
-        const val ACTION_AUDIO_CONSENT = "net.prototux.aare.AUDIO_CONSENT"
+        const val ACTION_AUDIO_CONSENT = net.prototux.aare.BuildConfig.APPLICATION_ID + ".AUDIO_CONSENT"
         const val EXTRA_RESULT_CODE = "code"
         const val EXTRA_RESULT_DATA = "data"
 
