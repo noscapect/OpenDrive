@@ -10,6 +10,8 @@ The first release is **OpenDrive 0.1.0**: [download the prebuilt APK](https://gi
 
 This initial APK is debug-signed with the same local key as our earlier builds. It uses Android version code 10401 so it can update those builds despite OpenDrive starting its own version sequence at 0.1.0. Hardware validation is still pending.
 
+See [SHA256SUMS](https://github.com/noscapect/OpenDrive/releases/download/v0.1.0/SHA256SUMS), the [release status and validation record](docs/opendrive-status.md), and the [changelog](CHANGELOG.md).
+
 ## Features
 
 - Configurable cockpit with navigation, music, EV and favorite tiles.
@@ -82,7 +84,7 @@ docs/                 Feature guides, upstream research and roadmap
 
 The initial app label is OpenDrive, while the inherited Android application ID remains `net.prototux.aare`. It therefore replaces a compatible, equally signed local AARE/OpenDrive installation rather than installing alongside it. A separate package identity is future work.
 
-The inherited AARE release workflow is preserved as documentation in `docs/aare-release-workflow.yml`, not executed in this repository. No automatic release publication or production signing configuration has been set up.
+Releases are currently published manually; version 0.1.0 is available above. The inherited AARE release workflow is preserved as documentation in `docs/aare-release-workflow.yml`, not executed in this repository. Automatic release publication and production signing have not been configured.
 
 ## License and attribution
 

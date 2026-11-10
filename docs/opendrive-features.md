@@ -2,9 +2,13 @@
 
 Deze functies zijn alleen toegevoegd aan OpenDrive. AARE blijft de upstreambasis; de oorspronkelijke checkout wordt niet aangepast en de push-URL van onze AARE-remote blijft uitgeschakeld.
 
+Deze handleiding beschrijft [OpenDrive 0.1.0](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0). Zie ook de [release-status en validatie](opendrive-status.md) en de [roadmap](opendrive-roadmap.md).
+
 ## Installeren en starten
 
-De nieuwe APK staat na een geslaagde build in `opendrive/build/opendrive-debug.apk`. Hij heeft dezelfde lokale ondertekening en hetzelfde Android-package als onze vorige lokale OpenDrive/AARE-APK. Hij kan daarover worden geïnstalleerd. Een officieel door AARE ondertekende installatie heeft een andere sleutel en kan hiermee niet rechtstreeks worden bijgewerkt.
+Download [opendrive-0.1.0.apk](https://github.com/noscapect/OpenDrive/releases/download/v0.1.0/opendrive-0.1.0.apk). Deze APK heeft versie `0.1.0`, Android version code `10401` en dezelfde lokale ondertekening en hetzelfde package als onze vorige lokale OpenDrive/AARE-APK. Hij kan daarover worden geïnstalleerd. Een officieel door AARE ondertekende installatie heeft een andere sleutel en kan hiermee niet rechtstreeks worden bijgewerkt.
+
+Zelf bouwen kan vanuit de repositoryroot met `./tools/opendrive/build.ps1 -Release`. De uitvoer staat standaard in `build/opendrive/opendrive-debug.apk`; onze lokale workspace-wrapper gebruikt `opendrive/build/opendrive-debug.apk`. `-Release` bepaalt het versielabel en blijft een debug-ondertekende build.
 
 Open op de telefoon de nieuwe categorie **OpenDrive**. Hier staan de tabbladen **Cockpit**, **EV**, **Favorieten**, **Thuis**, **Ritten** en **Bijrijder**. Druk na wijzigingen op **OpenDrive-instellingen opslaan**. Het bestaande **Voorbeeld autoscherm** kan worden gebruikt zonder auto. De preview genereert geen nep-voertuiggegevens en slaat geen ritten op.
 
@@ -44,7 +48,7 @@ Op de telefoon kun je ritten categoriseren, individueel of allemaal verwijderen 
 
 ## Bijrijderbediening
 
-Start geparkeerd **Bijrijderverbinding** vanuit het autoscherm of de telefooninstellingen terwijl een OpenDrive-sessie actief is. Op de telefoon kun je een tijdelijke link kopiëren. Open die op de telefoon van je bijrijder. Beide apparaten moeten elkaar op hetzelfde wifi-/hotspotnetwerk kunnen bereiken; een geïsoleerd auton etwerk of hotspot kan dit verhinderen. Bij meerdere netwerkadressen worden meerdere links aangeboden.
+Start geparkeerd **Bijrijderverbinding** vanuit het autoscherm of de telefooninstellingen terwijl een OpenDrive-sessie actief is. Op de telefoon kun je een tijdelijke link kopiëren. Open die op de telefoon van je bijrijder. Beide apparaten moeten elkaar op hetzelfde wifi-/hotspotnetwerk kunnen bereiken; een geïsoleerd autonetwerk of hotspot kan dit verhinderen. Bij meerdere netwerkadressen worden meerdere links aangeboden.
 
 De browser kan afspelen/pauzeren, vorige/volgende en een bestemmingsvoorstel versturen. Een bestemming wordt pas via de navigatieapp gezocht als de bestuurder op **Gebruiken** drukt. Er zijn geen berichten-, contact-, bestands- of algemene telefooncommando's beschikbaar. Alleen titel en afspeelstatus worden gedeeld.
 
@@ -56,6 +60,6 @@ Het laadpauzescherm combineert EV-gegevens met een pauzetimer van 10, 20 of 30 m
 
 ## Validatiegrenzen
 
-De build voert bestaande AARE-tests en eigen tests uit voor configuratie, gegevensbronnen en eenheden, schattingen, ritafstand, opslagselectie, CSV-escaping en de echte lokale HTTP-server. De API van Home Assistant is gebaseerd op de [officiële REST-documentatie](https://developers.home-assistant.io/docs/api/rest/).
+De 0.1.0-releasebuild heeft 201 lokale tests doorstaan: bestaande AARE-tests en eigen tests voor onder meer configuratie, gegevensbronnen en eenheden, schattingen, ritafstand, opslagselectie, CSV-escaping en de echte lokale HTTP-server. De APK-versie, ondertekening en publieke downloadchecksum zijn gecontroleerd. De API van Home Assistant is gebaseerd op de [officiële REST-documentatie](https://developers.home-assistant.io/docs/api/rest/).
 
 Er is geen telefoon of Kia aangesloten voor een praktijktest. De nieuwe schermen, Android Keystore, audio, thuisknoppen en LAN-bereikbaarheid moeten op apparaten worden gecontroleerd. Deze versie voegt geen ChatGPT-accountlogin, Buddy-, Hermes- of Codex-agent toe; de eerder gebouwde OpenAI-assistent met eigen API-sleutel blijft beschikbaar.

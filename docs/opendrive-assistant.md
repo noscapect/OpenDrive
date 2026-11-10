@@ -2,9 +2,11 @@
 
 Dit is een uitbreiding van OpenDrive, boven op AARE. De oorspronkelijke AARE-checkout en ontwikkelaar ontvangen deze wijzigingen niet.
 
+Beschikbaar in [OpenDrive 0.1.0](https://github.com/noscapect/OpenDrive/releases/tag/v0.1.0). De [release-status](opendrive-status.md) vermeldt de broncommit, APK-controles en open praktijktests.
+
 ## Instellen
 
-1. Installeer de lokaal gebouwde `opendrive/build/opendrive-debug.apk` over onze vorige lokale APK.
+1. Download en installeer [opendrive-0.1.0.apk](https://github.com/noscapect/OpenDrive/releases/download/v0.1.0/opendrive-0.1.0.apk). De ondertekening is gelijk aan onze eerdere lokale builds. Een anders ondertekende APK kan hiermee niet rechtstreeks worden bijgewerkt.
 2. Open op de telefoon **Spraakassistent**. Voeg in **OpenDrive-assistent** je eigen OpenAI API-sleutel toe en druk op **Opslaan**.
 3. Kies een model waarvoor je API-account toegang heeft. De standaard is `gpt-6.1-sol` met lage redeneerinspanning; transcriptie gebruikt `gpt-transcribe`. Je kunt het antwoordmodel aanpassen.
 4. Zet **OpenDrive gebruiken voor de spraakknop** aan. Geef OpenDrive toegang tot de microfoon via de bestaande telefooninstellingen als dat nog niet is gebeurd.
@@ -28,7 +30,7 @@ Er is geen live web-/plaatsenzoekdienst, routeplanning met laadstops, berichtenf
 
 ## Gegevens en grenzen
 
-De persoonlijke API-sleutel staat versleuteld met Android Keystore in `noBackupFilesDir`; hij wordt niet meegebouwd of gelogd. Dit is een persoonlijke ontwikkelbuild met een door de gebruiker beheerde sleutel. Voor publieke distributie moet een beheerde authenticatie-/backendoplossing worden ontworpen; een gedeelde servicesleutel hoort nooit in een mobiele APK.
+De persoonlijke API-sleutel staat versleuteld met Android Keystore in `noBackupFilesDir`; hij wordt niet meegebouwd of gelogd. Release 0.1.0 wordt openbaar verspreid als experimentele build met een door de gebruiker beheerde sleutel. Voor een beheerde dienst met centrale authenticatie of facturering is aanvullende backend-/authenticatie-inrichting nodig; een gedeelde servicesleutel hoort nooit in een mobiele APK.
 
 Opnemen begint uitsluitend na de microfoonknop. De opname is maximaal twintig seconden en blijft lokaal in geheugen tot verzending; hij wordt niet op schijf opgeslagen. De opname gaat naar OpenAI voor transcriptie. Transcript, recente gesprekscontext, voorkeuren en aangevraagde rit-/muziekgegevens gaan naar OpenAI voor antwoorden. Audio en gesprek worden door OpenDrive niet in diagnostiek geschreven. Responses gebruikt `store=false`; dat is geen claim dat alle providerretentie is uitgeschakeld.
 
@@ -38,9 +40,9 @@ De assistent krijgt alleen een expliciete lijst met navigatie- en muziekacties. 
 
 ## Validatie
 
-De automatische tests controleren WAV-formaat, begrenzing en stilte-afhandeling, gesprekscontext, toolresultaten, wissen van geschiedenis, fout-/annuleringsgedrag, actieschema's en argumentvalidatie. De bestaande AARE-protocol- en apptests draaien mee via `../build.ps1`.
+De automatische tests controleren WAV-formaat, begrenzing en stilte-afhandeling, gesprekscontext, toolresultaten, wissen van geschiedenis, fout-/annuleringsgedrag, actieschema's en argumentvalidatie. De bestaande AARE-protocol- en apptests draaien mee via `./tools/opendrive/build.ps1`, uitgevoerd vanuit de repositoryroot. De releasebuild heeft in totaal 201 protocol-/apptests doorstaan.
 
-De uiteindelijke buildinformatie en testresultaten staan in `opendrive/build/build-info.json` en `opendrive/build/tests`. Er is zonder ingestelde sleutel geen echte OpenAI-aanroep uitgevoerd. Android Keystore, opname, TTS, muziekapps en de Kia Niro zijn nog niet samen op een apparaat getest.
+In een zelfstandige clone staan buildinformatie en tests standaard in `build/opendrive/build-info.json` en `build/opendrive/tests`. Onze lokale workspace-wrapper schrijft naar `opendrive/build` onder de workspacehoofdmap. Er is zonder ingestelde sleutel geen echte OpenAI-aanroep uitgevoerd. Android Keystore, opname, TTS, muziekapps en de Kia Niro zijn nog niet samen op een apparaat getest.
 
 ## Gebruikte OpenAI-documentatie
 
